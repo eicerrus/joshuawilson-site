@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+
+<BaseLayout
+  title="About — Joshua Wilson"
+  description="Auckland-based data professional with 12 years experience across 8+ sectors."
+>
+  <Hero
+    hasHeadshot
+    headshot="/images/headshot-suit.jpg"
+    headline="Joshua Wilson"
+    subline="Data Professional. Auckland, New Zealand."
+    bg="var(--color-linen)"
+  />
+
+  <SectionWrapper narrow>
+    <p>
+      Most organisations are sitting on answers they haven't found yet. The data exists. The
+      signals are there. What's missing is someone willing to look honestly at what it says —
+      and say it clearly, even when it's inconvenient.
+    </p>
+    <p>
+      That's the work I've been doing since 2014. Twelve years across healthcare, government,
+      agriculture, real estate, energy, and more. The industries change. The problem doesn't:
+      data that isn't used is just cost.
+    </p>
+    <p>
+      I'm not interested in building reports for their own sake. I'm interested in the moment a
+      leadership team sees something they couldn't see before — and decides to act on it.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper narrow>
+    <p>
+      That obsession with surfacing what's hidden led me to build something. DeepWeave is a
+      business process visibility platform — a direct product of that same question applied to
+      operational data.
+    </p>
+    <CTAButton href="/deepweave" label="More about DeepWeave" />
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <div class="closing-cta">
+      <CTAButton href="mailto:joshua@joshuawilson.co.nz" label="Book a consultation" />
+    </div>
+  </SectionWrapper>
+</BaseLayout>
+
+<style>
+  p + p {
+    margin-top: 1.5rem;
+  }
+
+  p + a,
+  p + .cta {
+    margin-top: 1.5rem;
+    display: inline-block;
+  }
+
+  .closing-cta {
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+
+<BaseLayout
+  title="Services — Joshua Wilson"
+  description="Data analytics, business intelligence, and embedded consulting. Outcome-focused, not task-focused."
+>
+  <Hero
+    headline="I don't build reports. I build decisions."
+    subline="The difference is who you design for — and whether anyone acts on what you make."
+  />
+
+  <SectionWrapper>
+    <h2>Analytics & Business Intelligence</h2>
+    <p>
+      You have data. You might even have dashboards. What you probably don't have is a clear
+      line between what the dashboard says and what happens next. I design BI systems around
+      decisions, not metrics — so the people who need to act can see exactly what they need to see.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <h2>Data Strategy & Architecture</h2>
+    <p>
+      Most data problems are architecture problems in disguise. I work with technical and
+      leadership teams to map the current state, identify where data is being lost or ignored,
+      and build a roadmap that won't need replacing in eighteen months.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <h2>Embedded Consulting</h2>
+    <p>
+      Some problems need an outsider with no political skin in the game. I embed directly with
+      your team — short or long engagements — and work alongside your people rather than handing
+      over a deck and leaving.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper narrow>
+    <h2>The Way I Work</h2>
+    <p>
+      I don't take briefs at face value. Every engagement starts with a conversation about what
+      decision needs to be made and who needs to make it. The technical work follows from that —
+      not the other way around.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <div class="closing-cta">
+      <p>Let's define the right problem first.</p>
+      <CTAButton href="mailto:joshua@joshuawilson.co.nz" label="Book a consultation" />
+    </div>
+  </SectionWrapper>
+</BaseLayout>
+
+<style>
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .closing-cta {
+    text-align: center;
+  }
+
+  .closing-cta p {
+    margin-bottom: 1.5rem;
+  }
+</style>

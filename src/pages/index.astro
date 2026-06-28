@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import CTAButton from '../components/CTAButton.astro';
+---
+
+<BaseLayout
+  title="Joshua Wilson — Auckland Data Analyst"
+  description="Data analytics consulting for New Zealand businesses. Turning data into decisions since 2014."
+>
+  <Hero
+    hasHeadshot
+    headshot="/images/headshot-tech.jpg"
+    headline="Data is for Decision Making."
+    subline="I help organisations turn raw data into clarity — and clarity into action."
+  />
+
+  <SectionWrapper narrow>
+    <p>
+      Twelve years. Eight sectors. Over a hundred reports delivered. I work with leadership
+      teams to define the right problem, build the right infrastructure, and make sure the
+      output actually gets used — now increasingly with AI at the centre of that work.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <dl class="services-teaser">
+      <div>
+        <dt>Analytics & BI</dt>
+        <dd>From raw pipelines to executive dashboards.</dd>
+      </div>
+      <div>
+        <dt>Data Strategy</dt>
+        <dd>Architecture, governance, and roadmaps that hold.</dd>
+      </div>
+      <div>
+        <dt>Embedded Consulting</dt>
+        <dd>Inside your team, not around it.</dd>
+      </div>
+    </dl>
+    <CTAButton href="/services" label="See how I work" />
+  </SectionWrapper>
+
+  <SectionWrapper bg="var(--color-forest)">
+    <p class="deepweave-break__text">
+      I'm building DeepWeave — a business process visibility platform. Early access available.
+    </p>
+    <CTAButton href="/deepweave" label="Learn more" light />
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <div class="closing-cta">
+      <h2>Ready to get started?</h2>
+      <CTAButton href="mailto:joshua@joshuawilson.co.nz" label="Book a consultation" />
+    </div>
+  </SectionWrapper>
+</BaseLayout>
+
+<style>
+  .services-teaser {
+    margin-bottom: 2rem;
+  }
+
+  .services-teaser div {
+    margin-bottom: 1.5rem;
+  }
+
+  .services-teaser dt {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: 400;
+  }
+
+  .services-teaser dd {
+    margin-top: 0.25rem;
+  }
+
+  .deepweave-break__text {
+    color: white;
+    margin-bottom: 1.5rem;
+    max-width: var(--narrow-max);
+  }
+
+  .closing-cta {
+    text-align: center;
+  }
+
+  .closing-cta h2 {
+    margin-bottom: 1.5rem;
+  }
+</style>

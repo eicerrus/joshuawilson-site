@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import CTAButton from '../components/CTAButton.astro';
+
+const clients = [
+  { name: 'AA Insurance', sector: 'Insurance' },
+  { name: 'New Zealand Trade and Enterprise', sector: 'Government' },
+  { name: 'Barfoot & Thompson', sector: 'Real Estate' },
+  { name: 'Pamu (Landcorp Farming)', sector: 'Agriculture' },
+  { name: 'Genesis Energy', sector: 'Energy' },
+  { name: 'Douglas Pharmaceuticals', sector: 'Pharma' },
+  { name: 'Heart Foundation NZ', sector: 'NFP' },
+  { name: 'Animates New Zealand', sector: 'Retail' },
+  { name: 'healthAlliance', sector: 'Healthcare IT' },
+  { name: 'Protempo Group', sector: 'Technology' },
+  { name: 'Pareto Toolbox', sector: 'Procurement' },
+];
+---
+
+<BaseLayout
+  title="Customers — Joshua Wilson"
+  description="Trusted by 11 New Zealand organisations across government, real estate, agriculture, energy, and more."
+>
+  <Hero
+    headline="Trusted across New Zealand's public, private, and not-for-profit sectors since 2014."
+    goldRule
+    minHeight="40vh"
+  />
+
+  <SectionWrapper>
+    <div class="client-grid">
+      {clients.map((client) => (
+        <div class="client-entry">
+          <p class="client-entry__name">{client.name}</p>
+          <p class="client-entry__sector">{client.sector}</p>
+        </div>
+      ))}
+    </div>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <!-- Testimonials: drop in here when available -->
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <div class="closing-cta">
+      <p>Joining a strong list of New Zealand organisations making better decisions with data.</p>
+      <CTAButton href="mailto:joshua@joshuawilson.co.nz" label="Start a conversation" />
+    </div>
+  </SectionWrapper>
+</BaseLayout>
+
+<style>
+  .client-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .client-entry__name {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+  }
+
+  .client-entry__sector {
+    font-size: var(--text-ui);
+    color: var(--color-emerald);
+    margin-top: 0.25rem;
+  }
+
+  .closing-cta {
+    text-align: center;
+  }
+
+  .closing-cta p {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .client-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

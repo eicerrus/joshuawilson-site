@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
+import CTAButton from '../components/CTAButton.astro';
+import VideoCard from '../components/VideoCard.astro';
+
+const videos = await getCollection('videos');
+---
+
+<BaseLayout
+  title="DeepWeave — Business Process Visibility"
+  description="A navigable map of how your organisation actually works. Built by Saige."
+>
+  <Hero
+    headline="You have an org chart. You don't have a map."
+    subline="DeepWeave builds the operational picture your org chart doesn't show — who does what, what triggers what, and what breaks if it changes."
+  />
+
+  <SectionWrapper>
+    <h2>The Problem</h2>
+    <p>
+      Every restructure, ERP implementation, or acquisition runs into the same wall: no one
+      actually knows how the business works. Not in writing. Not in a form you can navigate. The
+      knowledge lives in people's heads, distributed across roles and teams, invisible until
+      something goes wrong.
+    </p>
+    <p>
+      Consultants charge months of workshops to surface it. Most of the time, they don't get it
+      right anyway.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper>
+    <h2>How It Works</h2>
+    <ol class="prose-list">
+      <li><strong>Employees do a 15-minute recorded interview.</strong> Questions are designed to surface actual day-to-day work — no process expertise required.</li>
+      <li><strong>AI processes the transcripts.</strong> Relationships, dependencies, and process ownership are inferred automatically.</li>
+      <li><strong>The map appears.</strong> A navigable visual network — roles, processes, and the threads connecting them. Click any node to see the work underneath it.</li>
+    </ol>
+  </SectionWrapper>
+
+  <SectionWrapper narrow>
+    <h2>What You Have At The End</h2>
+    <p>A living operational map. Not a slide deck. Not a report that dates the moment it's printed.</p>
+    <p>
+      You can see which processes exist, who owns them, what they depend on, and where the
+      risks are. The kind of clarity that used to take months — available before the project starts.
+    </p>
+    <p>
+      Built for the moments that demand it: ERP implementations, restructures, mergers and
+      acquisitions, and any transformation where understanding the current state is the
+      prerequisite to changing it.
+    </p>
+  </SectionWrapper>
+
+  <SectionWrapper narrow>
+    <p>
+      DeepWeave is a product of Saige — a company being built around a single idea: that
+      operational knowledge shouldn't be locked inside people's heads. More to come.
+    </p>
+  </SectionWrapper>
+
+  {videos.length > 0 && (
+    <SectionWrapper>
+      <div class="video-grid">
+        {videos.map((video) => (
+          <VideoCard
+            title={video.data.title}
+            date={video.data.date}
+            url={video.data.url}
+            description={video.data.description}
+          />
+        ))}
+      </div>
+    </SectionWrapper>
+  )}
+
+  <SectionWrapper>
+    <div class="closing-cta">
+      <p>Interested in early access or a conversation about what this could do for your organisation?</p>
+      <CTAButton href="mailto:joshua@joshuawilson.co.nz" label="Get in touch" />
+    </div>
+  </SectionWrapper>
+</BaseLayout>
+
+<style>
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  p + p {
+    margin-top: 1.5rem;
+  }
+
+  .prose-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .prose-list li {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose-list li:last-child {
+    margin-bottom: 0;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .closing-cta {
+    text-align: center;
+  }
+
+  .closing-cta p {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+interface Props {
+  headline: string;
+  subline?: string;
+  bg?: string;
+  hasHeadshot?: boolean;
+  headshot?: string;
+  goldRule?: boolean;
+  minHeight?: string;
+}
+
+const {
+  headline,
+  subline,
+  bg = 'var(--color-forest)',
+  hasHeadshot = false,
+  headshot,
+  goldRule = true,
+  minHeight = '100vh',
+} = Astro.props;
+
+const isLinen = bg === 'var(--color-linen)';
+---
+
+<section class="hero" style={`background: ${bg}; min-height: ${minHeight};`} class:list={[{ 'hero--light': isLinen }]}>
+  <div class="hero__inner" class:list={[{ 'hero__inner--split': hasHeadshot }]}>
+    <div class="hero__text">
+      <h1 class="hero__headline">{headline}</h1>
+      {goldRule && <hr class="hero__rule" />}
+      {subline && <p class="hero__subline">{subline}</p>}
+    </div>
+    {hasHeadshot && headshot && (
+      <div class="hero__image">
+        <img src={headshot} alt="" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .hero {
+    display: flex;
+    align-items: center;
+    padding: var(--section-gap) 1.5rem;
+  }
+
+  .hero__inner {
+    max-width: var(--content-max);
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero__inner--split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero__headline {
+    font-size: var(--text-hero);
+    color: white;
+    line-height: 1.1;
+  }
+
+  .hero--light .hero__headline {
+    color: var(--color-midnight);
+  }
+
+  .hero__rule {
+    border: 2px solid var(--color-gold);
+    width: 60px;
+    margin: 1.5rem 0;
+  }
+
+  .hero__subline {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 480px;
+  }
+
+  .hero--light .hero__subline {
+    color: rgba(16, 42, 67, 0.75);
+  }
+
+  .hero__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .hero__inner--split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

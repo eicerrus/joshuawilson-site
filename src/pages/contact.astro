@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — Joshua Wilson"
+  description="Get in touch to book a data analytics consultation or discuss DeepWeave."
+>
+  <section class="contact">
+    <h1>Let's talk.</h1>
+    <p>If you're looking for a data professional or want to know more about DeepWeave, I'd like to hear from you.</p>
+    <a href="mailto:joshua@joshuawilson.co.nz" class="contact__email">joshua@joshuawilson.co.nz</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--section-gap) 1.5rem;
+    max-width: var(--narrow-max);
+    margin: 0 auto;
+  }
+
+  .contact h1 {
+    font-size: var(--text-h2);
+  }
+
+  .contact p {
+    margin-top: 1.5rem;
+  }
+
+  .contact__email {
+    margin-top: 1.5rem;
+    color: var(--color-midnight);
+  }
+
+  .contact__email:hover {
+    color: var(--color-emerald);
+  }
+</style>

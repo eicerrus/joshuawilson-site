@@ -1,0 +1,29 @@
+---
+interface Props {
+  bg?: string;
+  narrow?: boolean;
+}
+
+const { bg = 'var(--color-linen)', narrow = false } = Astro.props;
+---
+
+<section style={`background: ${bg};`} class="section">
+  <div class="section__inner" class:list={[{ 'section__inner--narrow': narrow }]}>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section {
+    padding: var(--section-gap) 1.5rem;
+  }
+
+  .section__inner {
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+
+  .section__inner--narrow {
+    max-width: var(--narrow-max);
+  }
+</style>
